@@ -3,21 +3,38 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { collapsed } from './state'
 export default {
+  data(){
+    return{
+      mobileView: true
+    }
+  },
   props: {
     to: { type: String, required: true },
-    icon: { type: String, required: true }
+    icon: { type: String, required: true },
+    mobile: {type: Boolean}
   },
   setup(props) {
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
     return { isActive, collapsed }
-  }
+  },
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 595;
+    },
+  },
+
+  created() {
+    this.handleView();
+    window.addEventListener("resize", this.handleView);
+  },
 }
 </script>
 
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
-    <i class="icon" :class="icon" />
+    <i class="icon" :class="icon" v-if="!mobileView" />
+    <i class="bottom-icon" :class="icon" v-if="mobileView" />
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
@@ -61,5 +78,13 @@ export default {
   flex-shrink: 0;
   width: 25px;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 595px) {
+  .link .bottom-icon {
+    color: black;
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
 }
 </style>

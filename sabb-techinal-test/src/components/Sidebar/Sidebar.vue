@@ -15,9 +15,9 @@ export default {
     <h1>
       <span v-if="collapsed">
         <div>V</div>
-        <div>S</div>
+        <!-- <div>S</div> -->
       </span>
-      <span v-else>Vue Sidebar</span>
+      <span v-else>Vue</span>
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
@@ -37,9 +37,9 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #3d3d3d;
-  --sidebar-item-hover: #5e6360;
-  --sidebar-item-active: #3a3b3b;
+  --sidebar-bg-color: #3c00bd;
+  --sidebar-item-hover: #5a4bbb;
+  --sidebar-item-active: #59509f;
 }
 </style>
 
