@@ -54,6 +54,7 @@ export default {
   left: 0;
   bottom: 0;
   padding: 0.5em;
+  border-radius: 20px;
   transition: 0.3s ease;
   display: flex;
   flex-direction: column;

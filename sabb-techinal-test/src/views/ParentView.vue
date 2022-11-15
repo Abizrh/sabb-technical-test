@@ -4,8 +4,9 @@ import NavMobile from "../components/NavMobile.vue";
 
 import { sidebarWidth } from "../components/Sidebar/state";
 import Card from "../components/Card.vue";
+import Leftbar from "../components/Leftbar/Leftbar.vue";
 export default {
-  components: { Sidebar, NavMobile, Card },
+  components: { Sidebar, NavMobile, Card, Leftbar },
   setup() {
     return { sidebarWidth };
   },
@@ -29,11 +30,11 @@ export default {
 </script>
 <template>
   <Sidebar v-if="!mobileView" />
+  <Leftbar />
   <div class="container">
     <RouterView class="content" />
   </div>
   <NavMobile v-if="mobileView" key="1" />
-  <!-- <v-app-bar elevation="4">tesssss</v-app-bar> -->
 </template>
 
 <style>
@@ -56,7 +57,7 @@ export default {
 }
 
 .container {
-  margin-left: 200px;
+  margin-left: 215px;
 }
 
 @media only screen and (max-width: 828px) {

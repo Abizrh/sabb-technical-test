@@ -36,7 +36,6 @@
     max-width: 768px;
     height: 400px;
     margin-bottom: 40px;
-    background-image: url("../assets/takeabreak.jpg");
     background-size: cover;
     background-position: top;
     border-radius: 20px;
@@ -60,8 +59,8 @@
   }
   .infobox {
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     padding: 10px;
     margin: 0 20px 20px 0;
     border-radius: 20px;

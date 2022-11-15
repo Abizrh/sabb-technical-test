@@ -11,7 +11,7 @@ export const customStore = defineStore({
   }),
 
   actions: {
-    async getData() {
+    async fetchUsers() {
       try {
 
         const { data } = await axios({
@@ -23,7 +23,7 @@ export const customStore = defineStore({
         })
 
         console.log(data, 'DAAAATAAA')
-        this.users = data
+        this.users = data.data
         
       } catch (error) {
 

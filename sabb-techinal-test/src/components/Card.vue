@@ -6,7 +6,39 @@
         <i class="fas fa-chevron-right"></i>
       </div>
     </div>
-    <div class="infobox">
+    <v-item-group mandatory>
+      <v-container class="">
+        <v-row>
+          <v-col
+            v-for="n in 2"
+            :key="n"
+            cols="12"
+            md="4"
+          >
+            <v-item v-slot="{ active, toggle }">
+              <v-card
+                :color="active ? 'primary' : ''"
+                class="d-flex align-center pl-4 left-item"
+                
+                height="200"
+                @click="toggle"
+              >
+                <v-scroll-y-transition>
+                  <div
+                    v-if="active"
+                    class="text-h2 flex-grow-1 text-center"
+                  >
+                    Active
+                  </div>
+                </v-scroll-y-transition>
+                <h3>Hellooo</h3>
+              </v-card>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-item-group>
+    <!-- <div class="infobox">
       <div class="title">Articles</div>
       <div class="value">128</div>
     </div>
@@ -21,7 +53,7 @@
     <div class="infobox">
       <div class="title">Comments</div>
       <div class="value">145k</div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -37,7 +69,7 @@ export default {};
   height: 400px;
   margin-bottom: 40px;
   margin-top: 20px;
-  background-image: url("../assets/takeabreak.jpg");
+  background-image: url("../assets/doctor.webp");
   background-size: cover;
   background-position: top;
   border-radius: 20px;
@@ -75,5 +107,7 @@ export default {};
   padding: 10px 0 0 0;
   font-size: 2rem;
 }
+
+
 
 </style>

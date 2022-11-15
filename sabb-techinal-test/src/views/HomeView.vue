@@ -1,7 +1,12 @@
 <template>
   <div class="home">
-   <Card />
-   
+   <!-- <Card /> -->
+    <section>
+      <Card/>
+    </section>
+    <section class="list-table">
+      <Table />
+    </section>
   </div>
 </template>
 
@@ -9,6 +14,9 @@
 // @ is an alias to /src
 
 import Card from "../components/Card.vue";
+import Content from "../components/Content.vue";
+import Table from "../components/Table/Table.vue";
+import TableValue from "../components/Table/TableValue/TableValue.vue";
 
 // import HelloWorld from '@/components/HelloWorld.vue'
 export default {
@@ -20,6 +28,12 @@ export default {
   name: "Home",
   components: {
     Card,
-  },
+    Content,
+    Table,
+    TableValue
+},
 };
 </script>
+<style>
+
+</style>
