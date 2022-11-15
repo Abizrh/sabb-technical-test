@@ -1,19 +1,17 @@
 <template>
   <tr>
-    <td>{{ idx + 1}}</td>
+    <td>{{ idx + 1 }}</td>
     <td>{{ user.title }}</td>
     <td>{{ user.firstName }}</td>
     <td>{{ user.lastName }}</td>
-    <td><v-avatar>
-        <img
-          :src="user.picture"
-          alt="John"
-        >
-      </v-avatar></td>
     <td>
-        <v-button>
-            Delete
-        </v-button>
+      <v-avatar>
+        <img :src="user.picture" alt="user.title" />
+      </v-avatar>
+    </td>
+    <td  >
+      <v-btn depressed color="error" class="mx-3 " > Delete </v-btn>
+      <v-btn class="btn" > Edit </v-btn>
     </td>
   </tr>
 </template>
@@ -118,10 +116,13 @@ export default {
       ],
     };
   },
-  props: ['user', 'idx']
+  props: ["user", "idx"],
 };
 </script>
 <style scoped>
+.btn {
+    background: var(--sidebar-item-hover);
+}
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;

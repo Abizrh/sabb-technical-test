@@ -1,5 +1,5 @@
 <template>
-  <div class="table">
+  <!-- <div class="table">
     <v-row align="center" class="list px-3 mx-auto">
       
       <table class="styled-table">
@@ -23,6 +23,43 @@
         </tbody>
       </table>
     </v-row>
+  </div> -->
+  <div>
+    <v-table :data="users" class="table ml-5" :pageSize="5">
+      <thead slot="head">
+        <th>No</th>
+        <th>Title</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Picture</th>
+        <th>Actions</th>
+      </thead>
+      <tbody slot="body" slot-scope="{ displayData }">
+        <TableValue
+          v-for="(user, idx) in users"
+          :key="idx"
+          :user="user"
+          :idx="idx"
+        />
+      </tbody>
+    </v-table>
+  </div>
+  <div class="text-center mr-14 pagination">
+    <v-pagination
+      v-model="page"
+      :length="total_pages"
+      @click="onChangePage"
+      total-visible="7"
+    ></v-pagination>
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination-ul">
+          <li class="page-item" v-for="(page, idx) in pageNumber(total_pages)" :key="idx">
+            <a @click="onChangePage(page - 1)" >
+                {{page}}
+            </a>
+          </li>
+        </ul>
+      </nav> -->
   </div>
 </template>
 <script>
@@ -32,7 +69,7 @@ import { customStore } from "../../stores/users";
 export default {
   data() {
     return {
-        
+      page: 1,
     };
   },
   components: {
@@ -40,20 +77,54 @@ export default {
   },
 
   computed: {
-    ...mapState(customStore, ['users'])
+    ...mapState(customStore, ["users", "current_page", "total_pages"]),
   },
 
   methods: {
-    ...mapActions(customStore, ['fetchUsers'])
+    ...mapActions(customStore, ["fetchUsers"]),
+
+    pageNumber(user) {
+      let users = [];
+
+      for (let i = 0; i < user; i++) {
+        users.push(i);
+      }
+
+      return users;
+    },
+
+    onChangePage() {
+        this.fetchUsers(this.page++)
+    },
   },
 
-  created(){
-    this.fetchUsers()
-    console.log(this.users, 'USSSERRRR')
-  }
+  created() {
+    this.fetchUsers();
+
+    console.log(this.users, "USSSERRRR");
+  },
 };
 </script>
 <style scoped>
+button.page-link {
+  display: inline-block;
+}
+button.page-link {
+  font-size: 20px;
+  color: #29b3ed;
+  font-weight: 500;
+}
+.offset {
+  width: 500px !important;
+  margin: 20px auto;
+}
+.pagination {
+  margin-top: 500px;
+}
+.table {
+  width: 750px;
+  height: 500px;
+}
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
