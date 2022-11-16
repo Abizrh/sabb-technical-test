@@ -30,7 +30,7 @@ export default {
 </script>
 <template>
   <Sidebar v-if="!mobileView" />
-  <Leftbar />
+  <Leftbar v-if="!mobileView" />
   <div class="container">
     <RouterView class="content" />
   </div>

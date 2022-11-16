@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import Sidebar from "../components/Sidebar/Sidebar.vue";
 import ParentView from "../views/ParentView.vue";
 
 const router = createRouter({
@@ -20,6 +19,22 @@ const router = createRouter({
           name: "Dashboard",
           component: () => import("../views/Dashboard.vue"),
         },
+        {
+          path: '/detail/:userId',
+          name: 'detail',
+          component: () => import('../views/DetailView.vue')
+        },
+        {
+          path: '/create',
+          name: 'create',
+          component: () => import('../views/Create.vue')
+        },
+        {
+          path: '/update/:userId',
+          name: 'update',
+          component: () => import('../views/Create.vue')
+        },
+        
       ]
     },
     

@@ -22,7 +22,8 @@ export default {
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
     <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Analytics</SidebarLink>
+    <SidebarLink to="/create" icon="fas fa-plus-square">Add Users</SidebarLink>
+    <!-- <SidebarLink to="/update" icon="fas fa-user-edit" >Update Users</SidebarLink> -->
 
 
     <span

@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-   <!-- <Card /> -->
+    <!-- <Card /> -->
     <section>
-      <Card/>
+      <Card />
     </section>
     <section class="list-table">
       <Table />
@@ -17,23 +17,32 @@ import Card from "../components/Card.vue";
 import Content from "../components/Content.vue";
 import Table from "../components/Table/Table.vue";
 import TableValue from "../components/Table/TableValue/TableValue.vue";
-
-// import HelloWorld from '@/components/HelloWorld.vue'
+import { mapActions, mapState } from "pinia";
+import { customStore } from "../stores/users";
 export default {
   inject: {
-      theme: {
-        default: { isDark: false },
-      },
+    theme: {
+      default: { isDark: false },
     },
+  },
   name: "Home",
   components: {
     Card,
     Content,
     Table,
-    TableValue
-},
+    TableValue,
+  },
+  computed: {
+    ...mapState(customStore, ['listPost'])
+  },
+
+  methods: {
+    ...mapActions(customStore, ['fetchListPost'])
+  },
+
+  created(){
+    this.fetchListPost()
+  }
 };
 </script>
-<style>
-
-</style>
+<style></style>

@@ -1,29 +1,12 @@
 <template>
-  <!-- <div class="table">
-    <v-row align="center" class="list px-3 mx-auto">
-      
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Title</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Picture</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <TableValue
-            v-for="(user, idx) in users"
-            :key="idx"
-            :user="user"
-            :idx="idx"
-          />
-        </tbody>
-      </table>
-    </v-row>
-  </div> -->
+    <div class="text-center mr-14 pagination">
+        <v-pagination
+          v-model="page"
+          :length="total_pages"
+          @click="onChangePage"
+          total-visible="7"
+        ></v-pagination>
+      </div>
   <div>
     <v-table :data="users" class="table ml-5" :pageSize="5">
       <thead slot="head">
@@ -44,23 +27,7 @@
       </tbody>
     </v-table>
   </div>
-  <div class="text-center mr-14 pagination">
-    <v-pagination
-      v-model="page"
-      :length="total_pages"
-      @click="onChangePage"
-      total-visible="7"
-    ></v-pagination>
-    <!-- <nav aria-label="Page navigation example">
-        <ul class="pagination-ul">
-          <li class="page-item" v-for="(page, idx) in pageNumber(total_pages)" :key="idx">
-            <a @click="onChangePage(page - 1)" >
-                {{page}}
-            </a>
-          </li>
-        </ul>
-      </nav> -->
-  </div>
+ 
 </template>
 <script>
 import TableValue from "./TableValue/TableValue.vue";
@@ -69,7 +36,7 @@ import { customStore } from "../../stores/users";
 export default {
   data() {
     return {
-      page: 1,
+      page: 0,
     };
   },
   components: {
@@ -100,8 +67,6 @@ export default {
 
   created() {
     this.fetchUsers();
-
-    console.log(this.users, "USSSERRRR");
   },
 };
 </script>
@@ -119,11 +84,32 @@ button.page-link {
   margin: 20px auto;
 }
 .pagination {
-  margin-top: 500px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 .table {
   width: 750px;
   height: 500px;
+}
+
+@media only screen and (max-width: 635px) {
+    .table {
+        width: 500px;
+        height: 200px;
+    }
+
+    .pagination {
+        width: 420px;
+    }
+  }
+
+@media only screen and (max-width: 412px) {
+    .table {
+        width: 400px;
+        height: 750px;
+        margin-right: 399px;
+        
+    }
 }
 .styled-table {
   border-collapse: collapse;

@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     handleView() {
-      this.mobileView = window.innerWidth <= 595;
+      this.mobileView = window.innerWidth <= 848;
     },
   },
 
@@ -80,7 +80,7 @@ export default {
   margin-right: 10px;
 }
 
-@media only screen and (max-width: 595px) {
+@media only screen and (max-width: 848px) {
   .link .bottom-icon {
     color: black;
     font-size: 30px;

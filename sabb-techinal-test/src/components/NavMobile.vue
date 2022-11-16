@@ -2,17 +2,23 @@
   <v-app>
     <v-bottom-navigation :value="value" color="teal" grow>
       <v-btn>
-        <span>Recents</span>
+        <span>Home</span>
         <SidebarLink to="/" icon="fas fa-home" mobile />
       </v-btn>
       <v-btn>
-        <span>Favorites</span>
+        
+        <span>Dashboard</span>
         <SidebarLink to="/dashboard" icon="fas fa-columns" mobile  />
       </v-btn>
       <v-btn>
-        <span>Favorites</span>
-        <SidebarLink to="/analytics" icon="fas fa-chart-bar" mobile  />
+        <span>Create</span>
+        <SidebarLink to="/create" icon="fas fa-plus-square" mobile  />
+        
       </v-btn>
+      <!-- <v-btn>
+        <span>Update</span>
+        <SidebarLink to="/update" icon="fas fa-user-edit"  mobile  />
+      </v-btn> -->
     </v-bottom-navigation>
   </v-app>
 </template>

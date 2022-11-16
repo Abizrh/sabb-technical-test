@@ -38,22 +38,6 @@
         </v-row>
       </v-container>
     </v-item-group>
-    <!-- <div class="infobox">
-      <div class="title">Articles</div>
-      <div class="value">128</div>
-    </div>
-    <div class="infobox">
-      <div class="title">Readers</div>
-      <div class="value">18k</div>
-    </div>
-    <div class="infobox">
-      <div class="title">Likes</div>
-      <div class="value">302k</div>
-    </div>
-    <div class="infobox">
-      <div class="title">Comments</div>
-      <div class="value">145k</div>
-    </div> -->
   </div>
 </template>
 
