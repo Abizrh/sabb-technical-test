@@ -6,13 +6,18 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: "/:pathMatch(.*)*",
+      name: "notFound",
+      component: () => import("../views/NotFoundView.vue"),
+    },
+    {
       path: "/",
       component: ParentView,
       children: [
         {
-          path: '',
-          name: 'home',
-          component: HomeView
+          path: "",
+          name: "home",
+          component: HomeView,
         },
         {
           path: "/dashboard",
@@ -20,24 +25,22 @@ const router = createRouter({
           component: () => import("../views/Dashboard.vue"),
         },
         {
-          path: '/detail/:userId',
-          name: 'detail',
-          component: () => import('../views/DetailView.vue')
+          path: "/detail/:userId",
+          name: "detail",
+          component: () => import("../views/DetailView.vue"),
         },
         {
-          path: '/create',
-          name: 'create',
-          component: () => import('../views/Create.vue')
+          path: "/create",
+          name: "create",
+          component: () => import("../views/Create.vue"),
         },
         {
-          path: '/update/:userId',
-          name: 'update',
-          component: () => import('../views/Create.vue')
+          path: "/update/:userId",
+          name: "update",
+          component: () => import("../views/Create.vue"),
         },
-        
-      ]
+      ],
     },
-    
   ],
 });
 
