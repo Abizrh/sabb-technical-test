@@ -72,10 +72,6 @@
         >
           Update
         </v-btn>
-        <v-snackbar v-model="snackbar">
-          {{ text }}
-          <v-btn color="pink" @click="snackbar = false"> Close </v-btn>
-        </v-snackbar>
       </div>
     </v-form>
   </div>
@@ -125,7 +121,6 @@ export default {
 
     async submitCreate() {
       try {
-        this.snackbar = true;
         await this.createUser({
           title: this.title,
           firstName: this.firstName,
@@ -140,7 +135,6 @@ export default {
 
     async submitUpdate() {
       try {
-        this.snackbar = true
         await this.updateUser({
           userId: this.userId,
           title: this.title,

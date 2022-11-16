@@ -83,7 +83,6 @@ export const customStore = defineStore({
     },
 
     async createUser(user) {
-      console.log(user);
       try {
         await axios({
           method: "post",

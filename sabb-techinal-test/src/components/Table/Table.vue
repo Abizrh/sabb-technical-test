@@ -183,7 +183,7 @@ button.page-link {
 
 @media only screen and (max-width: 635px) {
   .table {
-    width: 500px;
+    width: 100%;
     height: 200px;
   }
 
@@ -194,9 +194,9 @@ button.page-link {
 
 @media only screen and (max-width: 412px) {
   .table {
-    width: 400px;
-    height: 750px;
-    margin-right: 399px;
+    width: 100%;
+    height: auto;
+    display: flex;
   }
 }
 .styled-table {

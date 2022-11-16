@@ -63,9 +63,11 @@ export default {
   padding: 0.4em;
   border-radius: 0.25em;
   height: 1.5em;
-  color: white;
+  color: rgb(0, 0, 0);
   padding-top: 30px;
   text-decoration: none;
+  margin: 5px;
+  padding-bottom: 30px;
 }
 .link:hover {
   background-color: var(--sidebar-item-hover);

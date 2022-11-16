@@ -1,24 +1,24 @@
 <template>
-  <div id="content">
+  <div>
     <div class="teaser">
       <div class="teaser-content">
         Read Article
         <i class="fas fa-chevron-right"></i>
       </div>
     </div>
-    <v-item-group mandatory>
-      <v-container class="">
-        <v-row>
+    <v-item-group mandatory >
+      <v-container >
+        <v-row >
           <v-col
             v-for="n in 2"
             :key="n"
             cols="12"
             md="4"
           >
-            <v-item v-slot="{ active, toggle }">
+            <v-item v-slot="{ active, toggle }" >
               <v-card
                 :color="active ? 'primary' : ''"
-                class="d-flex align-center pl-4 left-item"
+                class="d-flex align-center pl-4 left-item card"
                 
                 height="200"
                 @click="toggle"
@@ -92,6 +92,16 @@ export default {};
   font-size: 2rem;
 }
 
+.card {
+  border-radius: 30px ;
+}
+
+@media only screen and (max-width: 375){
+  .teaser {
+    width: 100%;
+    height: 300px;
+  }
+}
 
 
 </style>

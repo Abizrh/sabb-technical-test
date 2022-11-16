@@ -6,6 +6,10 @@ export default {
   components: { SidebarLink },
   setup() {
     return { collapsed, toggleSidebar, sidebarWidth }
+  },
+
+  created(){
+    collapsed
   }
 }
 </script>
@@ -15,13 +19,13 @@ export default {
     <h1>
       <span v-if="collapsed">
         <div>V</div>
-        <!-- <div>S</div> -->
       </span>
-      <span v-else>Vue</span>
+      <span class="_logo" v-if="!collapsed">
+        <img src="../../assets/sabcare.webp" />
+      </span>
     </h1>
-
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
+    <SidebarLink to="/dashboard" icon="fas fa-home">Dashboard</SidebarLink>
+    <SidebarLink to="/" icon="fas fa-th-list">List User</SidebarLink>
     <SidebarLink to="/create" icon="fas fa-plus-square">Add Users</SidebarLink>
     <!-- <SidebarLink to="/update" icon="fas fa-user-edit" >Update Users</SidebarLink> -->
 
@@ -46,7 +50,7 @@ export default {
 
 <style scoped>
 .sidebar {
-  color: white;
+  color: rgb(0, 0, 0);
   background-color: var(--sidebar-bg-color);
   float: left;
   position: fixed;
@@ -74,4 +78,17 @@ export default {
   transform: rotate(180deg);
   transition: 0.2s linear;
 }
+
+._logo {
+  margin-bottom: 10px;
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+._logo img {
+  width: 70px;
+}
+
 </style>

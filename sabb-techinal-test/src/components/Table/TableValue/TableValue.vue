@@ -28,11 +28,11 @@
       </v-btn>
       <v-btn
         depressed
-        color="error"
         class="mx-3"
+        style="background-color: #FF6A63 ;"
         @click="onDeleteUser(user.id)"
       >
-        <i class="fas fa-user-edit"></i>
+      <i class="fas fa-user-slash"></i>
       </v-btn>
     </td>
   </tr>
